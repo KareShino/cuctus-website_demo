@@ -1,14 +1,15 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: '私の最初のブログ記事'
-pubDate: 2024-12-22
+title: '情報研究会CACTUSについて'
+pubDate: 2024-12-25
 description: 'これは私の新しいAstroブログの最初の記事です。'
 author: 'Astro学習者'
 image:
-    url: '/assets/images/test.jpg'
-    alt: 'test画像'
-tags: ["astro", "ブログ", "公開学習"]
+    url: 'https://docs.astro.build/assets/full-logo-light.png'
+    alt: 'Astroのロゴ。'
+tags: ["astro", "ブログ", "後退"]
 ---
+
 Astroの学習についての私の _新しいブログ_ へようこそ！ここでは、新しいウェブサイトを作りながら、私の学習過程を共有します。
 
 ## 達成したこと

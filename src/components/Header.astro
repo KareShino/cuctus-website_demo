@@ -11,12 +11,24 @@ const { siteTitle = "CACTUS公式サイト" } = Astro.props;
   /* ベースのリセット・整形 (必要に応じて調整) */
   /* ------------------------------------ */
   .header {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.8rem 1rem;
     background-color: #beff3d;
+    position: fixed;
+    width: auto;
+    top: 0;
+    right: 0;
+    left: 0;
   }
+
+  body{
+    margin-top: 3.8rem;
+  }
+
   .header h1 {
     margin: 0;
     font-size: 1.4rem;
@@ -147,6 +159,7 @@ const { siteTitle = "CACTUS公式サイト" } = Astro.props;
       <li><a href="/blog">ブログ</a></li>
       <li><a href="/works">制作作品</a></li>
       <li><a href="/contact">お問い合わせ</a></li>
+      <li><a href="/tags/">タグ</a>
     </ul>
   </nav>
 </header>
