@@ -4,46 +4,38 @@ import Footer from "../components/Footer.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="大学サークルの公式ホームページです" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CACTUS公式サイト	|	ホーム</title>
-  </head>
-  <body>
-    <!-- ヘッダーコンポーネント -->
-    <Header />
+<BaseLayout title="CACTUS公式サイト | ホーム">
+  <!-- ヘッダーコンポーネント -->
+  <Header />
 
-    <!-- メインコンテンツ -->
-    <main style="margin: 2em 1em;">
-      <!-- ヒーローセクション -->
-      <section id="hero" style="margin-bottom: 2em;">
-        <h2>いらっしゃいませ！</h2>
-        <p>私たちのサークルを簡単にご紹介します。</p>
-      </section>
+  <!-- メインコンテンツ -->
+  <main>
+    <!-- ヒーローセクション -->
+    <section id="hero" style="margin-bottom: 2em;">
+      <h2>いらっしゃいませ！</h2>
+      <p>私たちのサークルを簡単にご紹介します。</p>
+    </section>
 
-      <!-- サークル概要セクション -->
-      <section id="about" style="margin-bottom: 2em;">
-        <h2>サークルについて</h2>
-        <p>
-          週に1回ミーティングを行い、合宿やイベントを企画しています。  
-          仲間同士で趣味を共有したり、新しいことを学んだり、
-          さまざまな活動を通じて交流しています。
-        </p>
-      </section>
+    <!-- サークル概要セクション -->
+    <section id="about" style="margin-bottom: 2em;">
+      <h2>サークルについて</h2>
+      <p>
+        週に1回ミーティングを行い、合宿やイベントを企画しています。  
+        仲間同士で趣味を共有したり、新しいことを学んだり、  
+        さまざまな活動を通じて交流しています。
+      </p>
+    </section>
 
-      <!-- お知らせセクション -->
-      <section id="news">
-        <h2>お知らせ</h2>
-        <ul>
-          <li>○月○日に新入生歓迎イベントを開催予定！</li>
-          <li>合宿の日程が決まりました。詳細は後日連絡します。</li>
-        </ul>
-      </section>
-    </main>
+    <!-- お知らせセクション -->
+    <section id="news">
+      <h2>お知らせ</h2>
+      <ul>
+        <li>○月○日に新入生歓迎イベントを開催予定！</li>
+        <li>合宿の日程が決まりました。詳細は後日連絡します。</li>
+      </ul>
+    </section>
+  </main>
 
-    <!-- フッターコンポーネント -->
-    <Footer />
-  </body>
-</html>
+  <!-- フッターコンポーネント -->
+  <Footer />
+</BaseLayout>

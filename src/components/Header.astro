@@ -21,6 +21,10 @@ const { siteTitle = "CACTUS公式サイト" } = Astro.props;
     margin: 0;
     font-size: 1.4rem;
   }
+  .nav-icon {
+    margin-right: 2rem;
+    align-items: left;
+  }
   nav ul {
     list-style: none;
     margin: 0;
@@ -142,10 +146,10 @@ const { siteTitle = "CACTUS公式サイト" } = Astro.props;
   <!-- ナビゲーション -->
   <nav>
     <ul>
-      <li><a href="/">ホーム</a></li>
-      <li><a href="/blog">ブログ</a></li>
-      <li><a href="/works">制作作品</a></li>
-      <li><a href="/contact">お問い合わせ</a></li>
+      <li><a href="/"><i class="fas fa-home nav-icon"></i>ホーム</a></li>
+      <li><a href="/blog"><i class="fas fa-blog nav-icon"></i>ブログ</a></li>
+      <li><a href="/works"><i class="fas fa-laptop-code nav-icon"></i>制作作品</a></li>
+      <li><a href="/contact"><i class="fas fa-envelope nav-icon"></i>お問い合わせ</a></li>
     </ul>
   </nav>
 </header>
