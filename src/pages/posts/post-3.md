@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: '長い長い記事'
 pubDate: 2024-12-24
 description: 'これは私の新しいAstroブログの最初の記事です。'
-author: 'サボ美'
+author: 'Astro学習者'
 image:
     url: 'https://docs.astro.build/assets/full-logo-light.png'
     alt: 'Astroのロゴ。'

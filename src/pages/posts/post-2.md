@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: '私の2のブログ記事'
 pubDate: 2024-12-23
 description: 'これは私の新しいAstroブログの最初の記事です。'
-author: 'Hyper Soul'
+author: 'Astro学習者'
 image:
     url: 'https://docs.astro.build/assets/full-logo-light.png'
     alt: 'Astroのロゴ。'
