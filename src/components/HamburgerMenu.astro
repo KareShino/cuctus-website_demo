@@ -1,0 +1,129 @@
+---
+/**
+ * Props:
+ *   menuItems?: { label: string; href: string; }[]
+ *   → 必要に応じてメニュー名とリンク先を配列で受け取りたい場合に拡張します。
+ */
+---
+
+<style>
+  .hamburger-wrapper {
+    position: relative;
+  }
+
+  /* メニューボタンは初期状態では PC表示のみ非表示（モバイル向け） */
+  input[type="checkbox"] {
+    display: none;
+  }
+  .hamburger-label {
+    display: none;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  .hamburger-label span,
+  .hamburger-label span::before,
+  .hamburger-label span::after {
+    background-color: #333;
+    border-radius: 2px;
+    display: block;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+  }
+  .hamburger-label span::before,
+  .hamburger-label span::after {
+    content: "";
+    position: absolute;
+  }
+  .hamburger-label span::before { top: -8px; }
+  .hamburger-label span::after { top: 8px; }
+
+  nav {
+    display: flex;
+    gap: 1rem;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0; 
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* ------------------------------- */
+  /* レスポンシブ（768px以下）の指定 */
+  /* ------------------------------- */
+  @media (max-width: 768px) {
+    /* PC画面向けの nav は非表示にし、ハンバーガーで開閉 */
+    nav {
+      display: none;
+      position: absolute;
+      top: 3.5rem;
+      right: 1rem;
+      flex-direction: column;
+      background-color: #f0f0f0;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+    nav ul {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    /* ハンバーガーボタンを表示 */
+    .hamburger-label {
+      display: flex;
+    }
+
+    /* チェックが入った時に nav を表示 */
+    input[type="checkbox"]:checked ~ nav {
+      display: flex;
+    }
+
+    /* チェックが入ったときに×印に変化 */
+    input[type="checkbox"]:checked + .hamburger-label span {
+      background-color: transparent;
+    }
+    input[type="checkbox"]:checked + .hamburger-label span::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+    input[type="checkbox"]:checked + .hamburger-label span::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+  }
+</style>
+
+<div class="hamburger-wrapper">
+  <!-- チェックボックス：ハンバーガー開閉用 -->
+  <input type="checkbox" id="menu-toggle" />
+  <!-- ハンバーガーアイコン -->
+  <label for="menu-toggle" class="hamburger-label">
+    <span></span>
+  </label>
+
+  <!-- ナビゲーションメニュー -->
+  <nav>
+    <ul>
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/blog">ブログ</a></li>
+      <li><a href="/works">作品紹介</a></li>
+      <li><a href="/contact">お問い合わせ</a></li>
+    </ul>
+  </nav>
+</div>

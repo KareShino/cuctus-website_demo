@@ -1,0 +1,151 @@
+---
+/**
+ * Props:
+ *  siteTitle: string (サイト名) - デフォルトは "大学サークル公式Webサイト"
+ */
+const { siteTitle = "CACTUS公式サイト" } = Astro.props;
+---
+
+<style>
+  /* ------------------------------------ */
+  /* ベースのリセット・整形 (必要に応じて調整) */
+  /* ------------------------------------ */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+    background-color: #f0f0f0;
+  }
+  .header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+  nav ul li {
+    margin: 0;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+
+  /* ------------------------------------ */
+  /* ハンバーガーメニューのチェックボックス */
+  /* ------------------------------------ */
+  input[type="checkbox"] {
+    display: none; /* 非表示にしてハックに利用 */
+  }
+  /* ハンバーガーアイコン */
+  .hamburger-label {
+    display: none; /* PC画面など大きい画面では非表示 */
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+  }
+  .hamburger-label span,
+  .hamburger-label span::before,
+  .hamburger-label span::after {
+    background-color: #333;
+    border-radius: 2px;
+    display: block;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+  }
+  .hamburger-label span::before,
+  .hamburger-label span::after {
+    content: "";
+    position: absolute;
+  }
+  .hamburger-label span::before {
+    top: -8px;
+  }
+  .hamburger-label span::after {
+    top: 8px;
+  }
+
+  /* ------------------------------------ */
+  /* レスポンシブデザイン */
+  /* ------------------------------------ */
+  @media (max-width: 768px) {
+    /* PC向けのナビを非表示にしておき、ハンバーガーで開閉 */
+    nav {
+      position: absolute;
+      top: 4rem;
+      right: 0;
+      background-color: #f0f0f0;
+      width: 200px;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      border-radius: 0 0 0 8px;
+    }
+    nav ul {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    nav ul li a {
+      padding: 0.5rem 0;
+    }
+
+    /* ハンバーガーラベルは表示する */
+    .hamburger-label {
+      display: flex;
+    }
+
+    /* チェックが入ったとき（ハンバーガーメニューを開く） */
+    input[type="checkbox"]:checked ~ nav {
+      display: flex;
+    }
+
+    /* ハンバーガーアイコンを×印にアニメーションする */
+    input[type="checkbox"]:checked + .hamburger-label span {
+      background-color: transparent;
+    }
+    input[type="checkbox"]:checked + .hamburger-label span::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+    input[type="checkbox"]:checked + .hamburger-label span::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+  }
+</style>
+
+<header class="header">
+  <!-- ロゴ or サイトタイトル -->
+  <h1>{siteTitle}</h1>
+
+  <!-- チェックボックス（ハンバーガーメニュー開閉用） -->
+  <input type="checkbox" id="menu-toggle" />
+  <!-- ハンバーガーアイコン -->
+  <label for="menu-toggle" class="hamburger-label">
+    <span></span>
+  </label>
+
+  <!-- ナビゲーション -->
+  <nav>
+    <ul>
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/blog">ブログ</a></li>
+      <li><a href="/works">制作作品</a></li>
+      <li><a href="/contact">お問い合わせ</a></li>
+    </ul>
+  </nav>
+</header>
